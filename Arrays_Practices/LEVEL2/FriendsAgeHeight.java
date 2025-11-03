@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class FriendsAgeHeight {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String[] names = {"Amar", "Akbar", "Anthony"};
+        int[] ages = new int[3];
+        double[] heights = new double[3];
+
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Enter age for " + names[i] + ": ");
+            ages[i] = scanner.nextInt();
+            System.out.print("Enter height (in cm) for " + names[i] + ": ");
+            heights[i] = scanner.nextDouble();
+        }
+
+        int youngestAge = ages[0];
+        String youngestName = names[0];
+        double tallestHeight = heights[0];
+        String tallestName = names[0];
+
+        for (int i = 1; i < 3; i++) {
+        
+            if (ages[i] < youngestAge) {
+                youngestAge = ages[i];
+                youngestName = names[i];
+            }
+
+            if (heights[i] > tallestHeight) {
+                tallestHeight = heights[i];
+                tallestName = names[i];
+            }
+        }
+
+        System.out.println("\n--- Results ---");
+        System.out.println("The youngest friend is " + youngestName + " with an age of " + youngestAge + ".");
+        System.out.println("The tallest friend is " + tallestName + " with a height of " + tallestHeight + " cm.");
+
+    }
+}
